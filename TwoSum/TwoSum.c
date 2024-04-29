@@ -1,7 +1,25 @@
 /**
- * Note: The returned array must be malloced, assume caller calls free().
+ * @file twoSum.c
+ * @author your name Barbra Gitonga
+ * @brief The function is t o return array indices of elements in 
+ *        array num that can be summed up to get target>
+ * @version 0.1
+ * @date 2024-04-30
+ * 
+ * @copyright Copyright (c) 2024
+ * 
  */
 #include <stdio.h>
+
+/**
+ * @brief 
+ * 
+ * @param nums - an array of numbers 
+ * @param numsSize - length of array of numbers
+ * @param target - value of expected sum to be matched
+ * @param returnSize - length of array to be returned
+ * @return int* - returns an array of the combination of words to be returned
+ */
 
 int* twoSum(int* nums, int numsSize, int target, int* returnSize){
     int i, j, sum = 0;
