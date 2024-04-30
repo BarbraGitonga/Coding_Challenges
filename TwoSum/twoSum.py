@@ -3,6 +3,9 @@
 Returns:
     _type_: integer
 """
+from typing import List
+
+
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         lens = len(nums)
