@@ -5,6 +5,9 @@ class Node:
         self.children = children
 """
 
+from typing import List
+
+
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
         if not root:
