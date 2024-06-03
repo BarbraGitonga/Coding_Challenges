@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "configurations": [
     {
       "name": "windows-gcc-x64",
@@ -32,4 +33,24 @@
     ],
     "version": 4
 >>>>>>> refs/remotes/origin/main
+=======
+  "configurations": [
+    {
+      "name": "linux-gcc-x64",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+      ],
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "compilerPath": "/usr/bin/gcc",
+      "intelliSenseMode": "linux-gcc-x64"
+    }
+  ],
+  "version": 4
+>>>>>>> 3c77f04013b17b7e92cb24134e618f0fffb9c7b9
 }
