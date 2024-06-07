@@ -4,6 +4,8 @@ from typing import List
 
 class Solution:
     def getMaximumGold(self, grid: List[List[int]]) -> int:
+        dir = [(0, 1), (0, -1), (-1, 0), (1, 0)]
+
         def dfs(x, y):
             if not (0 <= x < rows and 0 <= y < cols and grid[x][y]):
                 return 0
@@ -19,7 +21,5 @@ class Solution:
 
             return current_max_gold
         
-        rows, cols = len(grid), len(grid[0])
-        dir = [(0, 1), (0, -1), (-1, 0), (1, 0)]
-        
+        rows, cols = len(grid), len(grid[0])        
         return max(dfs(x, y) for x in range(len(grid)) for y in range(len(grid[0])))
