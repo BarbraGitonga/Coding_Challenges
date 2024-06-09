@@ -4,11 +4,7 @@
   "C_Cpp_Runner.debuggerPath": "gdb",
   "C_Cpp_Runner.cStandard": "",
   "C_Cpp_Runner.cppStandard": "",
-<<<<<<< HEAD
   "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/VR_NR/Community/VC/Auxiliary/Build/vcvarsall.bat",
-=======
-  "C_Cpp_Runner.msvcBatchPath": "",
->>>>>>> 3c77f04013b17b7e92cb24134e618f0fffb9c7b9
   "C_Cpp_Runner.useMsvc": false,
   "C_Cpp_Runner.warnings": [
     "-Wall",
@@ -41,13 +37,7 @@
   "C_Cpp_Runner.warningsAsError": false,
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [],
-<<<<<<< HEAD
   "C_Cpp_Runner.includePaths": [],
-=======
-  "C_Cpp_Runner.includePaths": [
-    "${workspaceFolder}/**"
-  ],
->>>>>>> 3c77f04013b17b7e92cb24134e618f0fffb9c7b9
   "C_Cpp_Runner.includeSearch": [
     "*",
     "**/*"
@@ -65,10 +55,5 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-<<<<<<< HEAD
   "C_Cpp_Runner.msvcSecureNoWarnings": false
-=======
-  "C_Cpp_Runner.msvcSecureNoWarnings": false,
-  "C_Cpp.errorSquiggles": "disabled"
->>>>>>> 3c77f04013b17b7e92cb24134e618f0fffb9c7b9
 }
