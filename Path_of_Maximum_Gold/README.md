@@ -13,7 +13,16 @@ Return the maximum amount of gold you can collect under the conditions:
 [Path with Maximum Gold]('https://leetcode.com/problems/path-with-maximum-gold/')
 
 ## Pseudocode
+
 ```
+1. Create a helper function to carry out depth first search algorithm.
+2. DFS:
+    IF grid cordinate is out of bounds:
+        RETURN 0
+    Store value of grid and assign the grid 0 to mark it as visited
+    ADD the value of grid to its highest neighbouring element in the four directions and store its value while recursively carrying out dfs on every grid.
+    Restore the value of the element of the grid.
+3. Iterate over all grids recursively carrying out dfs while storing the maximum value
 
 ```
 
