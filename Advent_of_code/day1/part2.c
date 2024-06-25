@@ -10,7 +10,7 @@ int findigits(char* window){
     for (int i=0; i<10; i++){
         const char a = nums[i];
 
-        if(strncmp(window, words[i], 3) == 0 || strncmp(window, words[i], 4) == 0 || strncmp(window, words[i], 5) == 0){
+        if(strncmp(window, words[i], strlen(words[i])) == 0){
               return nums[i] -'0';
         }
         else if(window[0] == a){
@@ -20,11 +20,10 @@ int findigits(char* window){
     return -1;
 }
 
-char* window(char *lines){
-    char *window_string = malloc(6 * sizeof(char)); // Allocate memory for 5 chars + null terminator
+char* window(char *lines, char* window_string){
     strncpy(window_string, lines, 5); // Copy the first 5 characters
     window_string[5] = '\0';
-    
+
     return window_string;
 }
 int tens_first(char* lines){
@@ -32,8 +31,8 @@ int tens_first(char* lines){
     int first = 0;
 
     for(int i = 0; i<len; i++){
-        char wind[5];
-        strcpy(wind, window(lines));
+        char wind[6];
+        window(lines, wind);
         if(findigits(wind) != -1){
             first = findigits(wind);
             break;
@@ -47,11 +46,10 @@ int last_ones(char* lines){
     int last = 0;
 
     for(int i = 0; i<len; i++){
-        char wind[5];
-        strcpy(wind, window(lines));
+        char wind[6];
+        window(lines, wind);
         if (findigits(wind) != -1){
             last = findigits(wind);
-            break;
         } 
     }
     return last;
@@ -62,7 +60,7 @@ int search(const char *filepath){
     char lines[100];
     char count = 0;
     int sum = 0;
-    int fsum, lsum;
+    int fsum, lsum = 0;
 
     if (file == NULL){
         printf("file is NULL \n");
