@@ -5,9 +5,9 @@
 
 int findigits(char* window){
     const char *words[] = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    char nums[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    char nums[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-    for (int i=0; i<10; i++){
+    for (int i=0; i<9; i++){
         const char a = nums[i];
 
         if(strncmp(window, words[i], strlen(words[i])) == 0){
@@ -77,6 +77,7 @@ int search(const char *filepath){
 
 int main(void){
   const char *filepath = "callibaration.txt";
+
   int total = search(filepath);
   printf("Total = %d", total);
   return 0;
