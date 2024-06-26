@@ -21,8 +21,8 @@ int findigits(char* window){
 }
 
 char* window(char *lines, char* window_string){
-    strncpy(window_string, lines, 5); // Copy the first 5 characters
-    window_string[5] = '\0';
+    strncpy(window_string, lines, 4); // Copy the first 5 characters
+    //window_string[5] = '\0';
 
     return window_string;
 }
@@ -31,7 +31,7 @@ int tens_first(char* lines){
     int first = 0;
 
     for(int i = 0; i<len; i++){
-        char wind[6];
+        char wind[4];
         window(lines, wind);
         if(findigits(wind) != -1){
             first = findigits(wind);
@@ -46,7 +46,7 @@ int last_ones(char* lines){
     int last = 0;
 
     for(int i = 0; i<len; i++){
-        char wind[6];
+        char wind[4];
         window(lines, wind);
         if (findigits(wind) != -1){
             last = findigits(wind);
@@ -70,6 +70,7 @@ int search(const char *filepath){
         fsum += tens_first(lines);
         lsum += last_ones(lines);
     }
+    printf("fsum: %d, lsum: %d",fsum, lsum);
     sum = (fsum * 10) + lsum;
     fclose(file);
     return sum;
