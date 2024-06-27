@@ -22,7 +22,7 @@ int findigits(char* window){
 
 char* window(char *lines, char* window_string){
     strncpy(window_string, lines, 4); // Copy the first 5 characters
-    //window_string[5] = '\0';
+    window_string[5] = '\0';
 
     return window_string;
 }

@@ -7,7 +7,6 @@ int findelement(char c){
     char nums[10] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
     for (int i=0; i<10; i++){
-        const char a = nums[i];
         if (c == nums[i]){
             return c - '0';
         }
