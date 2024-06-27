@@ -10,33 +10,34 @@ int findigits(char* window){
     for (int i=0; i<9; i++){
         const char a = nums[i];
 
-        if(strncmp(window, words[i], strlen(words[i])) == 0){
+        if(window[0] == a || strncmp(window, words[i], strlen(words[i])) == 0){
               return nums[i] -'0';
-        }
-        else if(window[0] == a){
-            return window[0] - '0';
         }
     }
     return -1;
 }
 
 char* window(char *lines, char* window_string){
-    strncpy(window_string, lines, 4); // Copy the first 5 characters
-    //window_string[5] = '\0';
+    strncpy(window_string, lines, 5); // Copy the first 5 characters
+    window_string[5] = '\0';
 
     return window_string;
 }
+
 int tens_first(char* lines){
     int len = strlen(lines);
     int first = 0;
 
     for(int i = 0; i<len; i++){
-        char wind[4];
+        char wind[5];
         window(lines, wind);
-        if(findigits(wind) != -1){
-            first = findigits(wind);
-            break;
-        } 
+        if(len-6 != 0){
+            if(findigits(wind) != -1){
+                first = findigits(wind); //breaks after finding the first digit
+                printf("first: %d\n", first);
+                break;
+            } 
+        }
     }
     return first;
 }
@@ -46,11 +47,14 @@ int last_ones(char* lines){
     int last = 0;
 
     for(int i = 0; i<len; i++){
-        char wind[4];
-        window(lines, wind);
-        if (findigits(wind) != -1){
-            last = findigits(wind);
+        char wind[5];
+        if(len-6 != 0){
+            window(lines+i, wind);
+            if (findigits(wind) != -1){
+                last = findigits(wind);
+                printf("last: %d\n", last);
         } 
+        }
     }
     return last;
 }
@@ -70,9 +74,11 @@ int search(const char *filepath){
         fsum += tens_first(lines);
         lsum += last_ones(lines);
     }
-    printf("fsum: %d, lsum: %d",fsum, lsum);
+
+    printf("fsum: %d, lsum: %d \n",fsum, lsum);
     sum = (fsum * 10) + lsum;
     fclose(file);
+
     return sum;
 }
 
@@ -80,6 +86,6 @@ int main(void){
   const char *filepath = "callibaration.txt";
 
   int total = search(filepath);
-  printf("Total = %d", total);
+  printf("Total = %d\n", total);
   return 0;
 }

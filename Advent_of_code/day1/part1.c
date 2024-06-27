@@ -30,7 +30,7 @@ int tens_first(char* lines){
 
 int last_ones(char* lines){
     int len = strlen(lines);
-    int last;
+    int last = 0;
     for(int i = 0; i<len; i++){
         char a = lines[i];
         if(findelement(a) != -1){
