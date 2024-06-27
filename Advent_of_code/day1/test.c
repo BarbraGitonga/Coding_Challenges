@@ -1,7 +1,5 @@
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 #include <stdio.h>
+#include <string.h>
 
 int findigits(char* window){
     const char *words[] = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
@@ -18,11 +16,7 @@ int findigits(char* window){
 }
 
 char* window(char *lines, char* window_string){
-<<<<<<< HEAD
-    strncpy(window_string, lines, 4); // Copy the first 5 characters
-=======
     strncpy(window_string, lines, 5); // Copy the first 5 characters
->>>>>>> af229600e3aff39c6d752119a23d794e3a64dfb7
     window_string[5] = '\0';
 
     return window_string;
@@ -31,59 +25,56 @@ char* window(char *lines, char* window_string){
 int tens_first(char* lines){
     int len = strlen(lines);
     char wind[5]; 
-    int first = 0;
-    for(int i = 0; i<len; i++){ 
+
+    for(int i = 0; i <= len; i++){ 
         window(lines + i, wind); 
+        int digit[len];
+
         if(findigits(wind)!= -1){
-            first = findigits(wind);
-            break;
+            digit[i] = findigits(wind);
+            return digit[0]; 
         }
     }
-    return first; 
+    return 0; 
 }
 
 int last_ones(char* lines){
     int len = strlen(lines);
     int last = 0;
 
-    for(int i = 0; i<len; i++){
+    for(int i = 0; i<len-5; i++){
         char wind[5];
         window(lines+i, wind);
         if (findigits(wind) != -1){
             last = findigits(wind);
-            printf("last: %d\n", last);
+            //printf("last: %d\n", last);
         } 
     }
     return last;
 }
-
-int search(const char *filepath){
-    FILE* file = fopen(filepath, "r");
-    char lines[100];
-    char count = 0;
-    int sum = 0;
-    int fsum, lsum = 0;
-
-    if (file == NULL){
-        printf("file is NULL \n");
-    }
-
-    while (fgets(lines, sizeof(lines), file)){
-        fsum += tens_first(lines);
-        lsum += last_ones(lines);
-    }
-
-    printf("fsum: %d, lsum: %d \n",fsum, lsum);
-    sum = (fsum * 10) + lsum;
-    fclose(file);
-
-    return sum;
-}
-
 int main(void){
-  const char *filepath = "callibaration.txt";
+    int ans;
+    char digit[] = "one2e45eweqwerfive";
+    char try[] = "edsd6sixshfseven";
+    char zero[] = "00000045two";
+    char wind[5];
+    int len;
 
-  int total = search(filepath);
-  printf("Total = %d\n", total);
-  return 0;
+    // ans = findigits(zero);
+    // printf("%d\n", ans);
+    // window(zero, wind);
+    // printf("%s\n", wind);
+    // ans = last_ones(digit);
+    // printf("%d\n", ans);
+    len = strlen(try);
+    // printf("%d", len);
+
+    for(int i=0; i<len; i++){
+        window(try+i, wind);
+        printf("wind %s\n", wind);
+        ans = tens_first(wind);
+        printf("first %d\n", ans);
+        ans = last_ones(wind);
+        printf("last %d\n", ans);
+    }
 }
