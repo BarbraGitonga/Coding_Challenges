@@ -24,33 +24,38 @@ char* window(char *lines, char* window_string){
 
 int tens_first(char* lines){
     int len = strlen(lines);
-    int first = 0;
+    char wind[5]; 
 
-    for(int i = 0; i<len; i++){
-        char wind[5];
-        window(lines, wind);
-        if(findigits(wind) != -1){
-            first = findigits(wind); //breaks after finding the first digit
-            printf("first: %d\n", first);
-            break;
-        } 
+    for(int i = 0; i <= len; i++){ 
+        window(lines + i, wind); 
+        int digit[len];
+
+        if(findigits(wind)!= -1){
+            digit[i] = findigits(wind);
+            return digit[0]; 
+        }
     }
-    return first;
+    return 0; 
 }
-int last_ones(char* lines){
-    int last = 0;
-    char wind[5];
 
-    window(lines, wind);
-    if (findigits(wind) != -1){
-        last = findigits(wind);
-        printf("last: %d\n", last);
+int last_ones(char* lines){
+    int len = strlen(lines);
+    int last = 0;
+
+    for(int i = 0; i<len-5; i++){
+        char wind[5];
+        window(lines+i, wind);
+        if (findigits(wind) != -1){
+            last = findigits(wind);
+            //printf("last: %d\n", last);
+        } 
     }
     return last;
 }
 int main(void){
     int ans;
     char digit[] = "one2e45eweqwerfive";
+    char try[] = "edsd6sixshfseven";
     char zero[] = "00000045two";
     char wind[5];
     int len;
@@ -61,15 +66,15 @@ int main(void){
     // printf("%s\n", wind);
     // ans = last_ones(digit);
     // printf("%d\n", ans);
-    len = strlen(digit);
+    len = strlen(try);
     // printf("%d", len);
 
     for(int i=0; i<len; i++){
-        if(len-6 != 0){
-            window(digit+i, wind);
-            printf("%s\n", wind);
-            ans = findigits(wind);
-            printf("%d\n", ans);
-        }
+        window(try+i, wind);
+        printf("wind %s\n", wind);
+        ans = tens_first(wind);
+        printf("first %d\n", ans);
+        ans = last_ones(wind);
+        printf("last %d\n", ans);
     }
 }
