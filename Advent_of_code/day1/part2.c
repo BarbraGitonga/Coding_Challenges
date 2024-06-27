@@ -27,18 +27,15 @@ char* window(char *lines, char* window_string){
 int tens_first(char* lines){
     int len = strlen(lines);
     char wind[5]; 
-
+    int first = 0;
     for(int i = 0; i<len; i++){ 
         window(lines + i, wind); 
-        int digit[10];
-        int j = 0;
         if(findigits(wind)!= -1){
-            digit[j] = findigits(wind);
-            j++;
-            return digit[0]; 
+            first = findigits(wind);
+            break;
         }
     }
-    return 0; 
+    return first; 
 }
 
 int last_ones(char* lines){
