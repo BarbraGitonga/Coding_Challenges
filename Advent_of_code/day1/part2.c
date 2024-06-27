@@ -18,11 +18,7 @@ int findigits(char* window){
 }
 
 char* window(char *lines, char* window_string){
-<<<<<<< HEAD
-    strncpy(window_string, lines, 4); // Copy the first 5 characters
-=======
     strncpy(window_string, lines, 5); // Copy the first 5 characters
->>>>>>> af229600e3aff39c6d752119a23d794e3a64dfb7
     window_string[5] = '\0';
 
     return window_string;
