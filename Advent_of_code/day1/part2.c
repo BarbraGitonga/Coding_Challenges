@@ -47,7 +47,6 @@ int last_ones(char* lines){
         window(lines+i, wind);
         if (findigits(wind) != -1){
             last = findigits(wind);
-            printf("last: %d\n", last);
         } 
     }
     return last;
