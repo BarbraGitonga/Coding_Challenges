@@ -4,7 +4,6 @@
 #include <stdbool.h>
 
 bool game_match(char *line){
-    char *balls[] = {"12", "13", " 14"}; //red, green, blue
     char *color[] = {"red", "green", "blue"};
     int len = strlen(line);
     char var[2];
