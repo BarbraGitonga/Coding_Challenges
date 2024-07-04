@@ -7,15 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-<<<<<<< HEAD
-      "externalConsole": true,
-      "cwd": "c:/Users/lenovo/Desktop/Coding_Challenges/Path_of_Maximum_Gold",
-      "program": "c:/Users/lenovo/Desktop/Coding_Challenges/Path_of_Maximum_Gold/build/Debug/outDebug",
-=======
       "externalConsole": false,
-      "cwd": "/home/barbra/Desktop/Coding_Challenges/Path_of_Maximum_Gold",
-      "program": "/home/barbra/Desktop/Coding_Challenges/Path_of_Maximum_Gold/build/Debug/outDebug",
->>>>>>> 3c77f04013b17b7e92cb24134e618f0fffb9c7b9
+      "cwd": "/home/barbra/Desktop/Coding_Challenges/Hackerrank_CPP",
+      "program": "/home/barbra/Desktop/Coding_Challenges/Hackerrank_CPP/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
