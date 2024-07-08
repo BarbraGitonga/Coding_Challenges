@@ -7,16 +7,19 @@
 bool game_match(char *line){
     char *color[] = {"red", "green", "blue"};
     int len = strlen(line);
-    char var[2];
+    char var[3];
     int num = 0;
     bool red, blue, green = false;
 
     for (int i=7; i<len;i++){
-        if (isdigit(line[i]) != 0){
-            strcpy(var, line[i]);
-            strcat(var, line[i+1]);
+        if (isdigit((unsigned char)line[i])) {
+            // Copy up to 2 characters starting from line[i] into var
+            strncpy(var, line + i, 2);
+            var[2] = '\0'; // Ensure null termination
             num = atoi(var);
-            i+=2;
+            if (i < len-3){
+                 i+=2;
+            }
             if(strncmp(line+i, color[0], 3) == 0 && 12<=num){
                red = true;
             }
@@ -36,7 +39,7 @@ bool game_match(char *line){
 
 int total_games(const char *filepath){
     FILE *file = fopen(filepath, "r");
-    char lines[100];
+    char lines[1024];
     int total = 0;
     int games = 1;
 
