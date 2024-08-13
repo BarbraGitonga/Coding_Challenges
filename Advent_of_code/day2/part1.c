@@ -11,15 +11,15 @@ bool game_match(char *line){
     int num = 0;
     bool red = false, blue = false, green = false;
 
-    for (int i=7; i<len;i++){
-        if (isdigit(line[i]) != 0){
-            strcpy(var, line[i]);
-            strcat(var, line[i+1]);
-            var[2] = '\0';
-
+    for (int i=7; i<len; i++){
+        if (isdigit((unsigned char)line[i])) {
+            // Copy up to 2 characters starting from line[i] into var
+            strncpy(var, line + i, 2);
+            var[2] = '\0'; // Ensure null termination
             num = atoi(var);
-            i+=2;
-            
+            if (i < len-3){
+                 i+=2;
+            }
             if(strncmp(line+i, color[0], 3) == 0 && 12<=num){
                red = true;
             }
@@ -36,7 +36,7 @@ bool game_match(char *line){
 
 int total_games(const char *filepath){
     FILE *file = fopen(filepath, "r");
-    char *line[256];
+    char lines[1024];
     int total = 0;
     int games = 1;
 
@@ -44,8 +44,8 @@ int total_games(const char *filepath){
         printf("File not found");
     }
 
-    while (fgets(line, sizeof(line), file)){
-        if (game_match(line) == true){
+    while (fgets(lines, sizeof(lines), file)){
+        if (game_match(lines) == true){
             total+=games;
         }
         games++;
