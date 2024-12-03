@@ -6,7 +6,6 @@ def parse(array):
             ans.append(char)
         else:
             
-
 def window(line):
     arr = []
     for step in line:
