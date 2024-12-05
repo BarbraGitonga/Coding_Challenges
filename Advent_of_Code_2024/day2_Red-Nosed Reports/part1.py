@@ -31,7 +31,6 @@ def safe_calculator(filename: str) -> int:
 
     return safe_count
 
-# Example usage
-filename = "test.txt"
+filename = "reports.txt"
 safety = safe_calculator(filename=filename)
 print(f"Total safe reports: {safety}")
