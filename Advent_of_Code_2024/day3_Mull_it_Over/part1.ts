@@ -20,10 +20,6 @@ const regex = (line: string): number => {
     return sum;
 };
 
-async function readInput(filename: string): Promise<string> {
-    const text = await Deno.readTextFile(filename);
-    return text;
-};
 
 async function main(filename: string) {
     try {
